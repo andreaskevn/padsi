@@ -94,3 +94,8 @@ export type DetailTransaksiPembelian = {
   totalHarga: number,
   tanggalTransaksi: string,
 };
+
+export type Revenue = {
+  month: string;
+  revenue: number;
+};

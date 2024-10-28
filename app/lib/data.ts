@@ -2,7 +2,7 @@ import { sql } from '@vercel/postgres';
 import {
   Role, User, Menu, TransaksiPenjualan, TransaksiPembelian, Pelanggan, BahanBaku, DetailTransaksiPenjualan, DetailTransaksiPembelian, Member 
 } from './definitions';
-import { formatCurrency } from './utils';
+// import { formatCurrency } from './utils';
 
 // export async function fetchRevenue() {
 //   try {
