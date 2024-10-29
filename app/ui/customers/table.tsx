@@ -2,14 +2,14 @@
 // import { lusitana } from '@/app/ui/fonts';
 // import Search from '@/app/ui/search';
 // import {
-//   CustomersTableType,
-//   FormattedCustomersTable,
+// //   CustomersTableType,
+// //   FormattedCustomersTable,
 // } from '@/app/lib/definitions';
 
 // export default async function CustomersTable({
-//   customers,
+// //   customers,
 // }: {
-//   customers: FormattedCustomersTable[];
+// //   customers: FormattedCustomersTable[];
 // }) {
 //   return (
 //     <div className="w-full">
