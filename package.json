@@ -4,7 +4,7 @@
     "build": "next build",
     "dev": "next dev --turbo",
     "start": "next start",
-    "seed": "node ./seed/route.ts"
+    "seed": "ts-node ./seed/route.ts"
   },
   "dependencies": {
     "@heroicons/react": "^2.1.4",
@@ -27,7 +27,8 @@
     "@types/bcrypt": "^5.0.2",
     "@types/node": "20.14.8",
     "@types/react": "npm:types-react@19.0.0-rc.1",
-    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
+    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
+    "ts-node": "^10.9.2"
   },
   "pnpm": {
     "overrides": {
