@@ -20,11 +20,11 @@ async function seedUsers() {
     users.map(async (user) => {
       const hashedPassword = await bcrypt.hash(user.password, 10);
       return client.sql`
-        INSERT INTO users (id, name, email, password)
+        INSERT INTO users (idUser, username, email, password)
         VALUES (${user.idUser}, ${user.username}, ${user.email}, ${hashedPassword})
-        ON CONFLICT (id) DO NOTHING;
+        ON CONFLICT (idUser) DO NOTHING;
       `;
-    }),
+    })
   );
 
   return insertedUsers;
@@ -36,18 +36,18 @@ async function seedRoles() {
   await client.sql`
     CREATE TABLE IF NOT EXISTS roles (
       idRole UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
-      nama_role VARCHAR(255) NOT NULL,
+      nama_role VARCHAR(255) NOT NULL
     );
   `;
 
   const insertedRoles = await Promise.all(
-    roles.map(
-      (role) => client.sql`
+    roles.map((role) =>
+      client.sql`
         INSERT INTO roles (idRole, nama_role)
         VALUES (${role.idRole}, ${role.nama_role})
-        ON CONFLICT (id) DO NOTHING;
-      `,
-    ),
+        ON CONFLICT (idRole) DO NOTHING;
+      `
+    )
   );
 
   return insertedRoles;
@@ -186,7 +186,6 @@ async function seedRoles() {
 
   async function seedBahanBakus() {
     await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
-  
     await client.sql`
       CREATE TABLE IF NOT EXISTS bahanBakus (
         idBahanBaku UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
@@ -199,12 +198,12 @@ async function seedRoles() {
   
     const insertedBahanBakus = await Promise.all(
       bahanBakus.map(
-        (BahanBaku) => client.sql`
-          INSERT INTO menus (idMenu, namaMenu, hargaMenu, gambarMenu)
-          VALUES (${BahanBaku.idBahanBaku}, ${BahanBaku.namaBahanBaku}, ${BahanBaku.hargaBahanBaku}, ${BahanBaku.gambarBahanBaku})
-          ON CONFLICT (id) DO NOTHING;
-        `,
-      ),
+        (bahanBaku) => client.sql`
+          INSERT INTO bahanBakus (idBahanBaku, namaBahanBaku, hargaBahanBaku, gambarBahanBaku, jumlahBahanBaku)
+          VALUES (${bahanBaku.idBahanBaku}, ${bahanBaku.namaBahanBaku}, ${bahanBaku.hargaBahanBaku}, ${bahanBaku.gambarBahanBaku}, ${bahanBaku.jumlahBahanBaku})
+          ON CONFLICT (idBahanBaku) DO NOTHING;
+        `
+      )
     );
   
     return insertedBahanBakus;
