@@ -1,9 +1,11 @@
 {
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "next build",
     "dev": "next dev --turbo",
-    "start": "next start"
+    "start": "next start",
+    "seed": "tsx ./app/seed/route.ts" 
   },
   "dependencies": {
     "@heroicons/react": "^2.1.4",
